@@ -1,0 +1,27 @@
+This window contains text from the file "text.txt" within a 
+JAR file placed  in the plugins directory.
+
+The PluginClassLoader handles loading any classes or resources your ImageJ 
+plugin may need to run. These classes and resources can now be placed in 
+JAR archives to simplify distribution.
+
+How to load resources:
+
+1. To load a resource as a stream (useful for text and config files), use the 
+getClass().getResourceAsStream() method. The code used to load this file in 
+the demo is shown below:
+
+	InputStream is = getClass().getResourceAsStream("/resources/text.txt");
+	InputStreamReader isr = new InputStreamReader(is);
+
+2. To get the URL of a resource (useful for images and binary files), use the 
+getClass().getResource() method. The code used to load the image shown below 
+is as follows:
+
+	URL url = getClass().getResource("/resources/buenavista.jpg");
+	Image image = getToolkit().getImage(url);
+
+
+The jar file was created using the command
+
+    jar cvfM jar_resources_demo.jar *

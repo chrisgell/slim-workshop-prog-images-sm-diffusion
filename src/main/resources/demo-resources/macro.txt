@@ -1,0 +1,9 @@
+  // This the macro that is run by the JAR_Demo plugin
+
+   arg = getArgument();
+   msg = "This macro is being run from a JAR file.";
+   if (arg!="")
+       msg = msg + "\nIt was passed the argument \""+arg+"\".";
+   else
+       msg = msg + "\nIt was not passed an argument.";
+   showMessage("JAR Demo Macro", msg);
